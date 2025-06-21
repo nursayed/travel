@@ -1,0 +1,1251 @@
+/* common  */
+
+.btn:focus,
+.form-control:focus,
+select:focus,
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dropdown-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* fonts */
+@font-face {
+  font-family: "poppins";
+  src: url('/assets/fonts/poppins/Poppins\ Regular\ 400.ttf') format('truetype');
+  src: url('/assets/fonts/poppins/Poppins\ Bold\ 700.ttf') format('truetype');
+  src: url('/assets/fonts/poppins/Poppins\ SemiBold\ 600.ttf') format('truetype');
+  src: url('/assets/fonts/poppins/Poppins\ ExtraBold\ 800.ttf') format('truetype');
+  src: url('/assets/fonts/poppins/Poppins\ ExtraLight\ 275.ttf') format('truetype');
+  src: url('/assets/fonts/poppins/Poppins\ Light\ 300.ttf') format('truetype');
+
+}
+
+
+@font-face {
+  font-family: "the-seasons";
+  src: url("./fonts/My_Fontspring_Fonts_Order_99961070/__MACOSX/My_Fontspring_Fonts_Order_99961070/Fonts/reg.otf") format("truetype");
+}
+
+/* primary color */
+:root {
+  --primary-black: #1F1F1F;
+  --primary-marine: #153B3C;
+  --primary-wine: #562D33;
+  --primary-terracotta: #925D56;
+  --Secondary-sand: #C9A582;
+  --Secondary-almond: #E6D7CB;
+  --Secondary-white: #FFFFFF;
+}
+
+/* Hover-prefixed color variables */
+:root {
+  --hover-marine: #20595b;
+  --hover-wine: #832F2F;
+  --hover-terracotta: #C0776A;
+  --hover-sand: #E6D3AD;
+  --hover-almond: #F2EDE6;
+}
+
+.gap-5 {
+  gap: 5rem !important;
+}
+
+/* menu */
+body.menu-open {
+  overflow: hidden;
+}
+
+.bg-brand-beige {
+  background-color: #e6d7cb;
+}
+
+.bg-brand-teal {
+  background-color: #1f4e49;
+}
+
+.text-brand-teal {
+  color: #1f4e49;
+}
+
+.text-brand-dark {
+  color: var(--primary-black);
+  font-family: "poppins";
+  font-weight: 600;
+}
+
+.text-brand-dark span {
+  font-weight: 100;
+}
+
+.navbar {
+  padding: 30px 0px;
+}
+
+.navbar img {
+  margin-left: -30px;
+}
+
+a.text-brand-dark:hover {
+  color: #1f4e49;
+}
+
+.btn-brand-teal {
+  background-color: var(--primary-marine);
+  color: #fff;
+  border-radius: 0%;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 16px 80px;
+}
+
+.top-header-padding {
+  padding: 0 !important;
+  padding-left: 2rem !important;
+  font-family: "poppins";
+}
+
+.top-header-padding {
+  font-size: 19px !important;
+}
+
+.btn-brand-teal:hover {
+  background-color: var(--hover-marine);
+  color: #fff;
+}
+
+.destinology-logo {
+  width: 180px;
+  height: auto;
+  color: #333333;
+}
+
+header.sticky-top {
+  z-index: 1045;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Fullscreen Collapse Menu */
+#mobileMenu.collapsing {
+  /* transition: height 0s ease; */
+  /* Modified this line */
+  /* Ensure transform animation runs, and Bootstrap waits for it. */
+  /* Height change is instant but delayed to match transform animation's end. */
+  transition: transform 0.3s ease-in-out, height 0s ease 0.3s;
+}
+
+#mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1040;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+}
+
+#mobileMenu.show {
+  transform: translateX(0);
+}
+
+/* Accordion Customizations */
+.accordion-button {
+  font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #1f4e49;
+  background-color: #f7f3f0;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: 0;
+}
+
+.accordion-body {
+  padding: 0;
+}
+
+.accordion-body .accordion-button {
+  font-size: 0.9rem;
+  font-weight: 400;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.accordion-body .accordion-body a {
+  padding: 0.8rem 1.25rem 0.8rem 2.5rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments menu*/
+
+@media (max-width: 769px) {
+  .filter-section-title {
+    font-size: 1.5rem !important;
+  }
+
+  .save-price {
+    display: inline !important;
+  }
+}
+
+
+
+@media (min-width: 992px) {
+  .navbar-brand {
+    position: relative;
+    left: auto;
+    transform: none;
+  }
+}
+
+
+@media (max-width: 1025px) {
+  .gap-5 {
+    gap: 2rem !important;
+  }
+
+  .navbar img {
+    margin-left: -0px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .sidebar-container {
+    border-radius: 0;
+    /* No border-radius on small screens for full width look */
+    box-shadow: none;
+    /* No shadow on small screens */
+  }
+
+  body {
+    padding: 0;
+    /* Remove body padding on small screens */
+  }
+}
+
+@media (max-width: 426px) {
+  .signup-img {
+    margin: 0px !important;
+  }
+
+  .end p {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .end .text-end {
+    text-align: center !important;
+  }
+
+  .navbar-brand img {
+    width: 90% !important;
+
+  }
+
+  .navbar {
+    background: #E6D7CB;
+    padding: 20px 0;
+  }
+
+  .navbar-brand {
+    left: 53%;
+    margin-top: -8px;
+
+  }
+
+  .navbar-call {
+    font-size: 14px;
+    font-weight: 275;
+  }
+}
+
+/* menu end */
+
+/* search  start */
+
+.Search {
+  background: var(--hover-almond);
+  font-size: 16px;
+  font-family: "poppins";
+  padding-top: 26px;
+}
+
+.Search div {
+  color: var(--primary-black) !important;
+}
+
+.Search .row {
+  margin-top: -26px;
+}
+
+/* search end */
+.input-field {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.30rem 1rem;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-field input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #212529;
+}
+
+.input-field .icon {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.input-field .tag {
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.input-field .tag .close-btn {
+  background: none;
+  border: none;
+  color: #1e40af;
+  cursor: pointer;
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0.7;
+}
+
+.input-field .clear-btn {
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+}
+
+.bold-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+select#sortSelect {
+  border-radius: 100px;
+  padding: 5px 20px !important;
+}
+
+.map-button {
+  background-color: #1e73f7;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.map-button i {
+  margin-right: 6px;
+}
+
+/* card */
+.free-child {
+  font-family: "poppins";
+}
+
+.free-child h2 {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.free-child p {
+  font-size: 16px;
+}
+
+.tag {
+  background-color: #dbeafe;
+  color: #1e40af;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.card img {
+  border-radius: 5px 0 0 5px;
+}
+
+.card-title i {
+  font-size: 12px;
+}
+
+
+.price-old {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.price-new {
+  font-size: 24px;
+  color: #1d4ed8;
+  font-weight: 800;
+}
+
+.price-new span {
+  font-size: 16px;
+}
+
+.date-morning-flight span {
+  font-size: 13px;
+  color: #6c757d;
+}
+
+.deal-btn {
+  background: var(--primary-marine);
+  color: white;
+  border: 3px solid var(--primary-marine);
+}
+
+.deal-btn:hover {
+  background: var(--hover-marine);
+  color: white;
+}
+
+.tag-save {
+  background-color: #562D33;
+  color: white;
+  padding: 0.40rem 0.85rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.tag-diposit {
+  background-color: #EFF6FB;
+  color: white;
+  padding: 0.40rem 0.85rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+/* toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked+.slider {
+  background-color: #2196f3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* filter  */
+.filter-map {
+  background: #F6F5F1;
+  padding-top: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0px 16px 0;
+  cursor: pointer;
+  /* Indicate that the header is clickable */
+}
+
+.filter-section-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-family: "poppins";
+}
+
+#popularFiltersCollapse label {
+  border: 1px solid black;
+  background: white;
+  color: #000;
+}
+
+.price-range-display {
+  justify-content: space-between;
+}
+
+/* sibar & card */
+
+.sidebar-card {
+  background-color: #F6F5F1;
+}
+
+.card-title {
+  font-family: "poppins";
+  font-family: "poppins";
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.card-title span {
+  font-size: 20px;
+}
+
+.card-body {
+  font-family: 'poppins';
+}
+
+/* Icon rotation for collapse */
+.section-header .fas.fa-chevron-up {
+  transition: transform 0.3s ease-in-out;
+}
+
+.section-header[aria-expanded="false"] .fas.fa-chevron-up {
+  transform: rotate(180deg);
+}
+
+/* No bottom border for the last section header */
+.sidebar-container>*:last-child .section-header {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  font-family: "poppins";
+}
+
+.form-check {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.form-check-input {
+  margin-top: 0;
+  /* Align checkbox with text */
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  /* Prevent checkbox from shrinking */
+}
+
+.form-check-label {
+  font-size: 1rem;
+  color: #555;
+  flex-grow: 1;
+  font-family: "poppins";
+  /* Allow label to take available space */
+}
+
+.form-check-text {
+  color: #777;
+  font-size: 0.85rem;
+  margin-left: auto;
+  /* Push count to the right */
+}
+
+.filter-tags .btn {
+  background-color: #e6f0ff;
+  color: #007bff;
+  border: 1px solid #cce0ff;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.filter-tags .btn:hover {
+  background-color: #d0e4ff;
+}
+
+.price-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  padding: 5px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+}
+
+.price-toggle-item {
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  /* Prevent text wrapping */
+}
+
+.price-toggle-item.active {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  margin: 0 8px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 22px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked+.slider {
+  background-color: #2196f3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Icon rotation for collapse */
+.section-header .fas.fa-chevron-up {
+  transition: transform 0.3s ease-in-out;
+}
+
+.section-header[aria-expanded="false"] .fas.fa-chevron-up {
+  transform: rotate(180deg);
+}
+
+
+
+.manual-styled-range {
+  height: 2px;
+  /* Thinner track */
+  background: #000;
+  /* Black track */
+  border-radius: 1px;
+  padding: 0;
+  /* Ensure no padding interferes with track */
+}
+
+/* WebKit (Chrome, Safari, Edge) Track */
+.manual-styled-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  /* Thinner track */
+  cursor: pointer;
+  background: #000;
+  /* Black track */
+  border-radius: 1px;
+  border: none;
+}
+
+/* Mozilla (Firefox) Track */
+.manual-styled-range::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  /* Thinner track */
+  cursor: pointer;
+  background: #000;
+  /* Black track */
+  border-radius: 1px;
+  border: none;
+}
+
+/* WebKit (Chrome, Safari, Edge) Thumb */
+.manual-styled-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 4px solid #000;
+  /* Black border for the ring */
+  height: 18px;
+  /* Smaller thumb */
+  width: 18px;
+  /* Smaller thumb */
+  border-radius: 50%;
+  /* Round thumb */
+  background: #ffffff;
+  /* White background for the ring interior */
+  cursor: grab;
+  margin-top: -8px;
+  /* Adjust to center vertically on the track */
+  box-shadow: none;
+  /* No shadow */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.manual-styled-range::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+/* Mozilla (Firefox) Thumb */
+.manual-styled-range::-moz-range-thumb {
+  border: 2px solid #000;
+  /* Black border for the ring */
+  height: 18px;
+  /* Smaller thumb */
+  width: 18px;
+  /* Smaller thumb */
+  border-radius: 50%;
+  /* Round thumb */
+  background: #ffffff;
+  /* White background for the ring interior */
+  cursor: grab;
+  box-shadow: none;
+  /* No shadow */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.manual-styled-range::-moz-range-thumb:active {
+  cursor: grabbing;
+}
+
+/* Focus styles for accessibility */
+.manual-styled-range:focus {
+  outline: none;
+  /* Ensure default outline is removed */
+}
+
+.manual-styled-range:focus::-webkit-slider-thumb {
+  box-shadow: none;
+  /* Removed the blue focus ring */
+}
+
+.manual-styled-range:focus::-moz-range-thumb {
+  box-shadow: none;
+  /* Removed the blue focus ring */
+}
+
+/* review icon */
+.riview {
+  backdrop-filter: blur(5px);
+}
+
+.riview h2 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.review-icon {
+  display: flex;
+  align-items: center;
+}
+
+.review-icon .circle {
+  margin: 0 4px 0px 0px;
+  width: .7rem;
+  height: .7rem;
+  background-color: #28a745;
+  /* Green color */
+  border-radius: 50%;
+}
+
+.review-icon .circle:last-child {
+  margin-left: -0.25rem;
+  /* Overlap effect */
+}
+
+/* why d */
+
+.section-why-destinology {
+  font-family: "poppins";
+  background-image: url("./images/footer-about-background.jpg");
+  /* Placeholder for the background image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 80px 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-why-destinology::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.2));
+  /* Gradient overlay */
+  z-index: -1;
+}
+
+.why-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+/* travel partner  */
+.travel-partner {
+  font-family: "the-seasons";
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.travel-partner h3 {
+  line-height: 38px;
+  font-weight: 400 !important;
+  font-size: 32px;
+}
+
+.carousel-container-custom {
+  /* Custom class to avoid conflict with Bootstrap's carousel */
+  width: 90%;
+  /* Responsive width */
+  max-width: 1200px;
+  /* Max width for larger screens */
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  /* Subtle shadow */
+  text-align: center;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* No wrap, as we want a single line for continuous scroll */
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  /* Align items to the start for scrolling */
+  gap: 2rem;
+  /* Gap between logos - retained as custom CSS for precise control */
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  /* Prevent shrinking and growing */
+  width: 150px;
+  /* Fixed width for each logo item */
+  text-align: center;
+  padding: 1rem;
+}
+
+.partner-logo {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  max-width: 100%;
+  /* Ensure logo doesn't exceed its slide width */
+  height: auto;
+  /* Maintain aspect ratio */
+  display: block;
+  /* Remove extra space below image */
+  margin: 0 auto;
+  /* Center image within slide */
+}
+
+.partner-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* exclusive offer */
+.exclusive-offer {
+  font-family: "poppins";
+  background-image: url("./images/1\ \(1\).png");
+}
+
+.custom-container {
+  max-width: 1140px;
+}
+
+.exclusive-offer h1 {
+  font-family: "the-seasons";
+  font-size: 40px;
+  color: #C9A582;
+
+}
+
+.exclusive-offer p {
+  color: white;
+  font-size: 18px;
+}
+
+.exclusive-offer button {
+  font-family: 'poppins';
+  padding: 10px 50px;
+  font-size: 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  color: var(--primary-marine);
+  line-height: 24px;
+
+}
+
+.signup-img {
+  margin: -100px 0;
+}
+
+
+
+
+/* footer menu */
+.footer {
+  background-color: #1F1F1F;
+  color: #f8f9fa;
+  padding: 60px 0;
+  font-family: "poppins";
+}
+
+.footer .cotainer {
+  max-width: 1140px !important;
+}
+
+.footer .logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f8f9fa;
+  margin-bottom: 48px;
+}
+
+.contact-info {
+  margin: 24px 0 48px;
+}
+
+.footer .contact-info p {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.footer .contact-info i {
+  margin-right: 10px;
+  color: #f8f9fa;
+}
+
+.input-group input {
+  width: 60%;
+  padding: 5px;
+}
+
+.footer .footer-links h5 {
+  color: #f8f9fa;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer .footer-links ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer .footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer .footer-links a:hover {
+  color: #adb5bd;
+}
+
+.footer .subscribe-form .form-control {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.footer .subscribe-form .form-control::placeholder {
+  color: #adb5bd;
+}
+
+.footer .subscribe-form .btn {
+  background-color: #562D33;
+  border: none;
+  border-radius: 3px !important;
+  color: #f8f9fa;
+  transition: background-color 0.3s, border-color 0.3s;
+  margin-left: 20px !important;
+}
+
+.footer .subscribe-form .btn:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* end start */
+
+.end {
+  font-family: "poppins";
+  background: #333333;
+}
+
+.end p {
+  font-size: 11px;
+  margin: 0;
+}
+
+
+
+/* end end */
+
+/* travel awer  start*/
+.travel-aware {
+  background: #333333;
+  color: white;
+  font-family: "poppins";
+}
+
+.travel-aware h3 {
+  font-family: "the-seasons";
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.travel-aware {
+  font-family: "poppins";
+  font-size: 14px;
+  font-weight: 200;
+}
+
+
+/* travel awer end*/
+/* recent view */
+.recent-view {
+  background-color: white;
+}
+
+/* Custom scrollbar styles to hide it but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* Custom styles for components */
+.card-img-top-custom {
+  border-radius: 5px 5px 0 0 !important;
+  height: 12rem;
+  /* 192px, equivalent to h-48 */
+  object-fit: cover;
+}
+
+.card-body h5 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.card-body i {
+  font-size: 14px;
+}
+
+
+.card-hover-shadow {
+  transition: box-shadow .3s;
+}
+
+.card-hover-shadow:hover {
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+  /* Equivalent to shadow-xl */
+}
+
+.rating-badge {
+  width: 2rem;
+  height: 2rem;
+}
+
+/*  deals -travel-inspiration */
+.deals-travel-inspiraiton {
+  background-color: #F6F5F1;
+  font-family: "poppins";
+}
+
+.deals-travel-inspiration-btn {
+  background: var(--primary-marine) !important;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.btn-success {
+  background-color: #28a745;
+  /* Matching the green from the image */
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+/* Style for social icons */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #212529;
+  border-radius: 50%;
+  color: #212529;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+  background-color: #212529;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Class for image items to handle transform and transitions */
+.img-item {
+  transition: transform 0.4s ease-in-out;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  width: 100%;
+  /* Ensure it takes full width of its column */
+}
+
+.img-item:hover {
+  transform: scale(1.05) rotate(2deg);
+  z-index: 10;
+}
+
+/* New styles to fix image height */
+.img-item img {
+  width: 100%;
+  height: 280px;
+  /* Force a consistent height for all images */
+  object-fit: cover;
+  /* Ensures image covers the area without distortion */
+}
