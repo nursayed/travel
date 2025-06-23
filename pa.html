@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Search UI</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- custom css for price and avaiavility-->
+    <link rel="stylesheet" href="./assets/pa.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+</head>
+
+<body>
+
+    <!-- menu -->
+    <header class=" bg-white">
+        <div class="bg-brand-beige d-none d-lg-block">
+            <!-- Changed container to container-fluid for wider content in the top bar -->
+            <div class="top-header-padding container-fluid d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-4 small">
+                    <a href="tel:01204269010"
+                        class="d-flex align-items-center gap-2 text-decoration-none text-brand-dark">
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>01204 269010</span>
+                    </a>
+                    <div class="d-flex align-items-center gap-2 text-brand-dark">
+                        <i class="bi bi-clock-fill"></i>
+                        <span>Open until 19:00</span>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-brand-teal btn-sm fw-semibold">
+                    <span>Plan Your Next Holiday</span>
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg">
+            <!-- Changed container to container-fluid for wider content in the navigation bar -->
+            <div class="container-fluid px-4">
+                <div class="d-lg-none d-flex align-items-center gap-2 text-brand-dark navbar-call">
+                    <a href="tel:01204269010" class="text-brand-dark"><i class="bi bi-telephone-fill fs-5"></i></a>
+                    <div class="small fw-semibold lh-1">
+                        <div>09:00 -</div>
+                        <div>19:00</div>
+                    </div>
+                </div>
+                <div class="col-md-5 collapse navbar-collapse" id="navbarNavLeft">
+                    <ul class="navbar-nav gap-5">
+                        <li class="nav-item"><a href="#" class="nav-link text-brand-dark">Destinations</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-brand-dark">Holiday Types</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-brand-dark">Offers</a></li>
+                    </ul>
+                </div>
+                <a class="col-md-2 navbar-brand" href="#" aria-label="Destinology Home">
+                    <img width="100%" src="./logo/logo2.png" alt="Destinology Logo">
+                    <!-- Added more descriptive alt text -->
+                </a>
+                <div class="col-md-5 collapse navbar-collapse" id="navbarNavRight">
+                    <ul class="navbar-nav ms-auto gap-5">
+                        <li class="nav-item"><a href="#" class="nav-link text-brand-dark">Luxury Cruise</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-brand-dark">Tailor-Made Holidays</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-brand-dark">Inspiration</a></li>
+                    </ul>
+                </div>
+                <div class="d-lg-none d-flex align-items-center gap-3">
+                    <button class="btn p-0" aria-label="Search">
+                        <i class="bi bi-search fs-5 text-brand-dark"></i>
+                    </button>
+                    <button id="menu-toggle-btn" class="btn p-0 border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i id="hamburger-icon" class="bi bi-list fs-2 text-brand-dark"></i>
+                        <i id="close-icon" class="bi bi-x fs-2 text-brand-dark d-none"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="collapse d-lg-none bg-brand-beige" id="mobileMenu">
+        <div class="d-flex flex-column h-100">
+            <div style="height: 90px;" class="flex-shrink-0"></div>
+            <div class="flex-grow-1">
+                <div class="accordion accordion-flush" id="mobileMenuAccordion">
+                    <div class="accordion-item bg-transparent border-bottom">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseDestinations" aria-expanded="false"
+                                aria-controls="collapseDestinations">Destinations</button>
+                        </h2>
+                        <div id="collapseDestinations" class="accordion-collapse collapse"
+                            data-bs-parent="#mobileMenuAccordion">
+                            <div class="accordion-body bg-white">
+                                <div class="accordion accordion-flush" id="nestedAccordionIndianOcean">
+                                    <div class="accordion-item bg-transparent">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed bg-transparent" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseIndianOcean"
+                                                aria-expanded="false" aria-controls="collapseIndianOcean">Indian
+                                                Ocean</button>
+                                        </h2>
+                                        <div id="collapseIndianOcean" class="accordion-collapse collapse"
+                                            data-bs-parent="#nestedAccordionIndianOcean">
+                                            <div class="accordion-body bg-white">
+                                                <a href="#"
+                                                    class="d-block text-decoration-none text-brand-dark border-top p-3">Maldives</a>
+                                                <a href="#"
+                                                    class="d-block text-decoration-none text-brand-dark border-top p-3">Mauritius</a>
+                                                <a href="#"
+                                                    class="d-block text-decoration-none text-brand-dark border-top p-3">Seychelles</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="d-block p-3 text-decoration-none text-brand-dark border-top">Far
+                                    East</a>
+                                <a href="#"
+                                    class="d-block p-3 text-decoration-none text-brand-dark border-top">Caribbean</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-transparent border-bottom">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseHolidayTypes" aria-expanded="false"
+                                aria-controls="collapseHolidayTypes">Holiday Types</button>
+                        </h2>
+                        <div id="collapseHolidayTypes" class="accordion-collapse collapse"
+                            data-bs-parent="#mobileMenuAccordion">
+                            <div class="accordion-body bg-white">
+                                <a href="#" class="d-block p-3 text-decoration-none text-brand-dark">All Inclusive</a>
+                                <a href="#" class="d-block p-3 text-decoration-none text-brand-dark border-top">Family
+                                    Holidays</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#"
+                        class="d-block p-3 text-decoration-none text-brand-dark fw-medium border-bottom">Offers</a>
+                    <a href="#" class="d-block p-3 text-decoration-none text-brand-dark fw-medium border-bottom">Luxury
+                        Cruises</a>
+                </div>
+            </div>
+
+            <div class="p-4 flex-shrink-0">
+                <div class="d-flex align-items-center justify-content-center gap-4 small text-brand-dark mb-4">
+                    <a href="tel:01204269010"
+                        class="d-flex align-items-center gap-2 text-decoration-none text-brand-dark">
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>01204 269010</span>
+                    </a>
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-clock-fill"></i>
+                        <span>Open until 19:00</span>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-brand-teal w-100 fw-semibold py-3">
+                    <span>Plan Your Next Holiday</span>
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- menu ed -->
+
+
+
+
+    <div class="refine-header">
+        <div class="container py-5">
+            <!-- Main Row -->
+            <div class="row g-4">
+
+                <!-- Column 1: Refine your holiday -->
+                <div class="col-lg-3">
+                    <h2 class="refine-title fs-5 fw-bold text-dark mb-4">Refine your holiday</h2>
+                    <div class="rounded-3">
+                        <div class="position-relative">
+                            <img src="./assets/images/hotel/4.jpg" alt="Jumeirah Beach Hotel"
+                                class="img-fluid rounded-3" style="height: 12rem; width: 100%; object-fit: cover;">
+                            <button
+                                class="btn  btn-light bg-white bg-opacity-75 p-2 rounded-circle position-absolute top-0 end-0 m-2 lh-1">
+                                <i class="bi bi-heart"></i>
+                            </button>
+                            <div
+                                class=" position-absolute bottom-0 start-50 translate-middle-x m-2 bg-white text-dark small px-2 py-1 rounded">
+                                1/56</div>
+                        </div>
+                        <div class="mt-4 refine-hotel-body">
+                            <i class="fas fa-star me-1 ms-0"></i><i class="fas fa-star me-1"></i><i
+                                class="fas fa-star me-1"></i><i class="fas fa-star me-1"></i><i
+                                class="fas fa-star me-1"></i>
+                            <h3 class="fs-5 fw-bold text-dark mt-2 ">Jumeirah Beach Hotel</h3>
+                            <p class="small text-muted">Jumeirah Beach, Dubai, United Arab Emirates</p>
+                            <div class="d-flex align-items-center">
+                                <svg class="me-2" width="24" height="24" viewBox="0 0 1333.31 1333.31" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <!-- The main path of the owl logo -->
+                                    <path fill="black" fill-rule="nonzero"
+                                        d="M1078.42 536.6l80.45-87.52h-178.4c-89.31-61.01-197.17-96.54-313.81-96.54-116.5 0-224.06 35.61-313.22 96.54H174.6l80.44 87.52c-49.31 44.99-80.22 109.8-80.22 181.75 0 135.79 110.09 245.88 245.88 245.88 64.51 0 123.27-24.88 167.14-65.55l78.81 85.81 78.81-85.73c43.87 40.67 102.57 65.47 167.07 65.47 135.79 0 246.03-110.09 246.03-245.88.07-72.03-30.84-136.83-80.15-181.75zM420.77 884.75c-91.92 0-166.4-74.48-166.4-166.4s74.49-166.4 166.4-166.4c91.92 0 166.4 74.49 166.4 166.4 0 91.91-74.49 166.4-166.4 166.4zm245.96-171.24c0-109.5-79.63-203.5-184.73-243.65 56.84-23.76 119.18-36.94 184.66-36.94 65.47 0 127.89 13.18 184.73 36.94-105.02 40.23-184.65 134.15-184.65 243.65zm245.88 171.24c-91.92 0-166.4-74.48-166.4-166.4s74.49-166.4 166.4-166.4c91.92 0 166.4 74.49 166.4 166.4 0 91.91-74.49 166.4-166.4 166.4zm0-253.7c-48.2 0-87.23 39.03-87.23 87.23 0 48.19 39.03 87.22 87.23 87.22 48.19 0 87.22-39.03 87.22-87.22 0-48.12-39.03-87.23-87.22-87.23zM508 718.35c0 48.19-39.03 87.22-87.23 87.22-48.19 0-87.22-39.03-87.22-87.22 0-48.2 39.03-87.23 87.22-87.23 48.19-.07 87.23 39.03 87.23 87.23z" />
+                                </svg>
+                                <div class=" review-icon me-2">
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle" style="margin-right: 8px;"></div>
+                                    <div class="circle"></div>
+                                </div>
+                                <p class="small text-body-secondary mt-1 mb-1">9,124 reviews</p>
+                            </div>
+                            <div class="d-flex gap-2 mt-4 h-details-map">
+                                <a href="http://" class="me-4"><i class="bi bi-building me-2"></i>
+                                    Hotel details</a>
+                                <a href="http://"><i class="bi bi-geo-alt me-2"></i>
+                                    Map</a>
+                            </div>
+                        </div>
+
+
+
+                        <div class="my-4"></div>
+                        <!-- 1. Airport Filter -->
+                        <div class="position-relative mb-2">
+                            <div class="filter-trigger d-flex align-items-center justify-content-between p-3 border rounded-3 bg-white"
+                                style="cursor: pointer;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="icon fas fa-plane-departure"></i>
+                                    <span class="small">Any airport</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Nights Filter -->
+                        <div class="position-relative mb-2">
+                            <div class="filter-trigger d-flex align-items-center justify-content-between p-3 border rounded-3 bg-white"
+                                style="cursor: pointer;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="bi bi-moon fs-5 text-muted"></i>
+                                    <span class="small">5 nights</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Board Basis Filter -->
+                        <div class="position-relative mb-2">
+                            <div class="filter-trigger d-flex align-items-center justify-content-between p-3 border rounded-3 bg-white"
+                                style="cursor: pointer;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="fas fa-mug-hot me-2"></i>
+                                    <span class="small">Any board basis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Occupancy Filter -->
+                        <div class="position-relative mb-2">
+                            <div class="filter-trigger d-flex align-items-center justify-content-between p-3 border rounded-3 bg-white"
+                                style="cursor: pointer;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="icon fas fa-users"></i>
+                                    <span class="small">1 Room / 2 Adults</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Flight Time Filter -->
+                        <div class="position-relative mb-2">
+                            <div class="filter-trigger d-flex align-items-center justify-content-between p-3 border rounded-3 bg-white"
+                                style="cursor: pointer;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="bi bi-airplane-fill fs-5"></i>
+                                    <span class="small">Any flight time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3 mt-4">
+                            <svg width="50" height="50" viewBox="0 0 100 100" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <!-- Checkmark -->
+                                <polyline points="30,50 45,65 70,35" stroke="#333333" stroke-width="7"
+                                    stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+                                <!-- Heart (adjusted path for a small, subtle heart) -->
+                                <path
+                                    d="M50 30 C 55 20, 65 20, 70 30 C 75 40, 50 55, 50 60 C 50 55, 25 40, 30 30 C 35 20, 45 20, 50 30 Z"
+                                    fill="#FFC107" stroke-width="5" transform="translate(10, 10) scale(.6)" <!--
+                                    Yellowish color from the image -->
+
+
+                                    <!-- Adjusted scale and translate for a smaller heart -->
+                                    />
+                            </svg>
+
+                            <div>
+                                <div class="match-price-body ">
+                                    <h4 class="fw-semibold small">Price Match Guarantee</h4>
+                                    <p class="small text-muted mb-0">We won't be beaten on price</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <!-- Column 2: Price & Availability -->
+                <div class="col-lg-5">
+                    <h2 class="widget-title mb-4">Price & Availability</h2>
+                    <div class="calendar-widget">
+                        <p class="selected-date-display">Selected Date: <span id="selected-date-text">Sun 30 Nov
+                                2025</span></p>
+
+                        <div class="calendar-header">
+                            <button id="prev-month" class="nav-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg> </button>
+                            <div id="month-year-display" class="month-display">
+                                <span>November 2025</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 12H21M3 6H21M3 18H15" stroke="#667085" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <button id="next-month" class="nav-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="calendar-grid days-of-week">
+                            <div>Mo</div>
+                            <div>Tu</div>
+                            <div>We</div>
+                            <div>Th</div>
+                            <div>Fr</div>
+                            <div>Sa</div>
+                            <div>Su</div>
+                        </div>
+
+                        <div id="calendar-days" class="calendar-grid">
+                            <!-- Calendar days will be dynamically inserted here by JavaScript -->
+                        </div>
+
+                        <div class="calendar-footer">
+                            <div class="toggle-container">
+                                <span>Price Per Person</span>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                                <span>Total Price</span>
+                            </div>
+                            <div class="legend">
+                                <span class="cheapest-icon">£</span>
+                                = Cheapest
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Flight & Hotel Offer -->
+                <div class="col-lg-4 ">
+                    <h2 class="fs-5 fw-bold text-dark mb-4">Flight & Hotel Offer</h2>
+                    <div class="holiday-card  ">
+                        <!-- Card Header -->
+                        <div class="card-header">
+                            <span class="header-title">Cheapest holiday price</span>
+                            <span class="best-offer-tag">Best Offer</span>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="card-body offer-card">
+                            <!-- Hotel Info -->
+                            <div class="hotel-info">
+                                <div class="hotel-name">Jumeirah Beach Hotel</div>
+                                <div class="hotel-details">Sun 30 Nov 2025 (5 nights)</div>
+                                <div class="hotel-details">Breakfast included</div>
+                            </div>
+
+                            <!-- Flight Details -->
+                            <div class="flight-segment">
+                                <div class="segment-header">
+                                    <div class="date-info"><i class="fa-solid fa-plane plane-1"></i><span>Sun 30 Nov
+                                            2025</span>
+                                    </div>
+                                    <div class="airline-info">
+                                        <div class="airline-name">AJet</div>
+                                        <div class="flight-number">VF1988</div>
+                                    </div>
+                                </div>
+                                <div class="segment-label">Outbound</div>
+                                <div class="flight-path-details">
+                                    <div class="departure"><span class="time">12:35</span><span class="location">London
+                                            Stansted
+                                            (STN)</span></div>
+                                    <div class="journey-details"><i class="fa-regular fa-clock"></i><span
+                                            class="duration">11h
+                                            15m</span><span class="stop-info">1 stop<span
+                                                class="stop-question-mark">?</span></span>
+                                    </div>
+                                    <div class="arrival"><span class="time">03:50<sup
+                                                class="next-day">+1</sup></span><span class="location">Dubai
+                                            (DXB)</span></div>
+                                </div>
+                            </div>
+                            <hr class="separator">
+                            <div class="flight-segment">
+                                <div class="segment-header">
+                                    <div class="date-info"><i class="fa-solid fa-plane plane-2"></i><span>Fri 5 Dec
+                                            2025</span>
+                                    </div>
+                                    <div class="airline-info">
+                                        <div class="airline-name">AJet</div>
+                                        <div class="flight-number">VF550</div>
+                                    </div>
+                                </div>
+                                <div class="segment-label">Inbound</div>
+                                <div class="flight-path-details">
+                                    <div class="departure"><span class="time">06:00</span><span class="location">Dubai
+                                            (DXB)</span>
+                                    </div>
+                                    <div class="journey-details"><i class="fa-regular fa-clock"></i><span
+                                            class="duration">12h
+                                            35m</span><span class="stop-info">1 stop<span
+                                                class="stop-question-mark">?</span></span>
+                                    </div>
+                                    <div class="arrival"><span class="time">14:35</span><span class="location">London
+                                            Stansted
+                                            (STN)</span></div>
+                                </div>
+                            </div>
+                            <div class="booking-summary-card">
+                                <!-- Top Tags -->
+                                <div class="info-tags mt-4">
+                                    <span class="tag atol-tag"><i class="fa-solid fa-arrows-rotate"></i> ATOL
+                                        protected</span>
+                                    <span class="tag flexible-tag"><i class="fa-solid fa-arrows-rotate"></i> Flexible
+                                        Hotel Changes</span>
+                                </div>
+                                <hr class="separator">
+
+                                <!-- Original Price -->
+                                <div class="original-price-container">
+                                    <span class="original-price">£3,121 <i class="fa-solid fa-circle-info"></i></span>
+                                </div>
+
+                                <!-- Price Breakdown -->
+                                <div class="price-row">
+                                    <span class="price-label">Per person</span>
+                                    <span class="price-value">£1,459</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Total price</span>
+                                    <span class="price-value">£2,918</span>
+                                </div>
+                                <div class="price-row secure-today-row">
+                                    <span class="price-label">Secure today for</span>
+                                    <span class="price-value">£29<span class="pp-text">pp</span></span>
+                                </div>
+
+
+
+                                <div class="dropdown-container">
+                                    <div class="custom-dropdown" onclick="toggleDropdown()">
+                                        <span id="selected-option">Payment options</span>
+                                        <span>&#9662;</span> <!-- Down arrow -->
+                                    </div>
+                                    <div class="dropdown-options" id="dropdown-menu">
+                                        <div onclick="selectOption('Credit Card')">Credit Card</div>
+                                        <div onclick="selectOption('PayPal')">PayPal</div>
+                                        <div onclick="selectOption('Bank Transfer')">Bank Transfer</div>
+                                    </div>
+                                </div>
+
+
+                                <hr>
+
+                                <!-- Further Charges -->
+                                <div class="further-charges">
+                                    <h6>Further charges</h6>
+                                    <p>Your hotel may charge additional fees, which must be paid there.</p>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="d-grid gap-2">
+                                    <button type="button" class="btn btn-action-primary">Select this holiday</button>
+                                    <button type="button" class="btn btn-action-secondary">Alternative flights</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- alternative flight -->
+
+
+
+
+
+    <div class="container my-4">
+        <h2 class="main-title">Alternative flights</h2>
+        <div class="row g-4">
+            <!-- Left Sidebar -->
+            <div class="col-lg-3">
+                <div class="filters-sidebar">
+                    <div class="filter-card">
+                        <div class="filter-title plane-right"><span>Stops <i class="fa-solid fa-plane plane-1"></i>
+                                <!-- <i class="bi bi-airplane"></i> --></span><i
+                                class="bi bi-chevron-up toggle-icon"></i></div>
+                        <div class="filter-body">
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="stops"
+                                        value="any" checked><label>Any</label></div>
+                            </div>
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="stops"
+                                        value="1"><label>1 stop</label></div><span class="price-hint">£1,459</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-title"><span>Departure from <i class="bi bi-airplane-engines"></i></span><i
+                                class="bi bi-chevron-up toggle-icon"></i></div>
+                        <div class="filter-body">
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="airport"
+                                        value="any" checked><label>Any</label></div>
+                            </div>
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="airport"
+                                        value="STN"><label>London Stansted</label></div><span
+                                    class="price-hint">£1,459</span>
+                            </div>
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="airport"
+                                        value="MAN"><label>Manchester</label></div><span
+                                    class="price-hint">£1,389</span>
+                            </div>
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="airport"
+                                        value="LGW"><label>London Gatwick</label></div><span
+                                    class="price-hint">£1,479</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-title"><span>Airlines <i class="bi bi-suit-club"></i></span><i
+                                class="bi bi-chevron-up toggle-icon"></i></div>
+                        <div class="filter-body">
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="airline"
+                                        value="any" checked><label>Any</label></div>
+                            </div>
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="airline"
+                                        value="AJet"><label>AJet</label></div><span class="price-hint">£1,459</span>
+                            </div>
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="airline"
+                                        value="Saudia"><label>Saudia</label></div><span class="price-hint">£1,389</span>
+                            </div>
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="airline"
+                                        value="Turkish"><label>Turkish Airlines</label></div><span
+                                    class="price-hint">£1,479</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Outbound times -->
+                    <div class="rounded-4 shadow-sm  mb-3 bg-white p-4">
+                        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#Outboundtimes"
+                            aria-expanded="true" aria-controls="Outboundtimes">
+                            <span class="section-title">Outbound times
+                                <i class="fas fa-plane-departure"></i>
+                            </span>
+                            <div>
+                                <i class="fas fa-chevron-up text-muted"></i>
+                            </div>
+                        </div>
+                        <div class="collapse show" id="Outboundtimes">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="morningOutbound">
+                                <label class="form-check-label" for="morningOutbound">Morning
+                                    <br><small>00:00-11:59</small></label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="afternoonOutbound">
+                                <label class="form-check-label" for="afternoonOutbound">Afternoon
+                                    <br><small>12:00-17:59</small></label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="eveningOutbound">
+                                <label class="form-check-label" for="eveningOutbound">Evening
+                                    <br><small>18:00-23:59</small></label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Inbound times  -->
+                    <div class="rounded-4 shadow-sm  mb-3 bg-white p-4">
+                        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#Inboundtimes"
+                            aria-expanded="true" aria-controls="Inboundtimes">
+                            <span class="section-title">Inbound times
+                                <i class="fas fa-plane-arrival"></i>
+                            </span>
+                            <div>
+                                <i class="fas fa-chevron-up text-muted"></i>
+                            </div>
+                        </div>
+                        <div class="collapse show" id="Inboundtimes">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="morningInbound">
+                                <label class="form-check-label" for="morningInbound">Morning
+                                    <br><small>00:00-11:59</small></label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="afternoonInbound">
+                                <label class="form-check-label" for="afternoonInbound">Afternoon
+                                    <br><small>12:00-17:59</small></label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="eveningInbound">
+                                <label class="form-check-label" for="eveningInbound">Evening
+                                    <br><small>18:00-23:59</small></label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- START: IMPROVED DURATION FILTER -->
+                    <div class="rounded-4 shadow-sm  mb-3 bg-white p-4">
+                        <div class="section-header" data-bs-toggle="collapse" data-bs-target="#maxprice"
+                            aria-expanded="true" aria-controls="maxprice">
+                            <span class="section-title">Max price
+                                <i class="fas fa-wallet price-icon"></i>
+                            </span>
+                            <div>
+                                <i class="fas fa-chevron-up text-muted"></i>
+                            </div>
+                        </div>
+                        <div class="collapse show" id="maxprice">
+                            <div class="filter-content">
+                                <div class="price-range-display">
+                                    <span>Any</span>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="range" class="form-range manual-styled-range" id="rangeManualStyle">
+                                </div>
+                                <div class="price-range-display d-flex justify-between">
+                                    <span>£200</span>
+                                    <span>Any</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END: IMPROVED DURATION FILTER -->
+
+                    <div class="filter-card">
+                        <div class="filter-title plane-right"><span>Stops <i class="fa-solid fa-plane plane-1"></i>
+                                <!-- <i class="bi bi-airplane"></i> --></span><i
+                                class="bi bi-chevron-up toggle-icon"></i></div>
+                        <div class="filter-body">
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="stops"
+                                        value="any" checked><label>Any</label></div>
+                            </div>
+                            <div class="form-check d-flex justify-content-between">
+                                <div><input class="form-check-input filter-input" type="checkbox" name="stops"
+                                        value="1"><label>1 stop</label></div><span class="price-hint">£1,459</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- END: journey DURATION FILTER -->
+                </div>
+            </div>
+
+            <!-- Right Column with Updated Nights Tabs -->
+            <div class="col-lg-9" id="flight-results-container">
+                <div class="nights-tabs-container">
+                    <div class="nights-tabs">
+                        <a data-nights="2">2 Nights<small>from £999 pp</small></a>
+                        <a data-nights="3">3 Nights<small>from £1,289 pp</small></a>
+                        <a data-nights="4">4 Nights<small>from £1,269 pp</small></a>
+                        <a data-nights="5" class="active">5 Nights<small>from £1,459 pp</small></a>
+                        <a data-nights="6-8">6-8 Nights<small>from £1,609 pp</small></a>
+                        <a data-nights="9-11">9-11 Nights<small>from £2,039 pp</small></a>
+                        <a data-nights="12-15">12-15 Nights<small>from £2,539 pp</small></a>
+                    </div>
+                </div>
+
+                <!-- Flight Card Examples -->
+                <div class="flight-card" data-nights="5" data-airport="STN" data-airline="AJet" data-stops="1"
+                    data-duration="755">
+                    <div class="flight-details-wrapper">
+                        <div class="flight-segments">
+                            <div class="segment-leg"><i class="bi bi-airplane-fill"
+                                    style="transform: rotate(45deg);"></i>
+                                <div class="segment-info">Sun 30 Nov 2025<br><span>Outbound</span></div>
+                            </div>
+                            <div class="flight-path-details">
+                                <div class="departure"><span class="time">12:35</span><span class="location">London
+                                        Stansted
+                                        (STN)</span></div>
+                                <div class="journey-details"><i class="fa-regular fa-clock"></i><span
+                                        class="duration">11h
+                                        15m</span><span class="stop-info">1 stop<span
+                                            class="stop-question-mark">?</span></span>
+                                </div>
+                                <div class="arrival"><span class="time">03:50<sup class="next-day">+1</sup></span><span
+                                        class="location">Dubai
+                                        (DXB)</span></div>
+                            </div>
+                            <div class="segment-airline-info">
+                                <div class="airline-logo">AJet</div>
+                                <div class="flight-number">VF1988</div>
+                            </div>
+                        </div>
+                        <hr class="segment-divider">
+                        <div class="flight-segments">
+                            <div class="segment-leg"><i class="bi bi-airplane-fill"
+                                    style="transform: rotate(225deg);"></i>
+                                <div class="segment-info">Fri 5 Dec 2025<br><span>Inbound</span></div>
+                            </div>
+                            <div class="flight-path-details">
+                                <div class="departure"><span class="time">06:00</span><span class="location">Dubai
+                                        (DXB)</span>
+                                </div>
+                                <div class="journey-details"><i class="fa-regular fa-clock"></i><span
+                                        class="duration">12h
+                                        35m</span><span class="stop-info">1 stop<span
+                                            class="stop-question-mark">?</span></span>
+                                </div>
+                                <div class="arrival"><span class="time">14:35</span><span class="location">London
+                                        Stansted
+                                        (STN)</span></div>
+                            </div>
+                            <div class="segment-airline-info">
+                                <div class="airline-logo">AJet</div>
+                                <div class="flight-number">VF550</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-pricing">
+                        <div class="price">£1,459<small> pp</small> <i class="bi bi-question-circle"></i></div><button
+                            class="btn btn-select">Flights + Hotel</button>
+                    </div>
+                </div>
+
+
+                <!-- START: PAGINATION HTML FROM IMAGE -->
+                <nav aria-label="Page navigation" class="d-flex align-items-center mt-4">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item disabled"><span class="page-link">...</span></li>
+                        <li class="page-item"><a class="page-link" href="#">27</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- END: PAGINATION HTML FROM IMAGE -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- why d -->
+    <section class="section-why-destinology">
+        <div class="container px-4">
+            <div class="text-center mb-5">
+                <div class="d-flex justify-content-center mb-4">
+                    <div>
+                        <svg width="80" height="80" version="1.1" viewBox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m23.349 16.244c0.06372-0.00125 0.12744-0.0025 0.18991-0.0025 1.8679 0 3.627 0.71375 4.9677 2.0212 1.3868 1.3525 2.1502 3.1638 2.1502 5.1 0 3.9288-3.1935 7.11-7.1317 7.1225-1.7767 0.00625-7.1054 0.045-7.1054 0.045v-6.9538c0-3.945 3.1085-7.2325 6.9293-7.3325m21.987-3.6525c-1.7442-3.0562-4.0494-5.5625-6.8518-7.45-2.74-1.8438-5.8548-3.1825-9.2582-3.9775-3.3035-0.77375-6.6331-1.1638-9.8979-1.1638h-19.328l0.099953 19.25c0.02124 4.2675 1.7055 8.2712 4.739 11.272 1.9766 1.955 4.373 3.3312 6.9817 4.0475 2.3139 0.445 4.4042 0.5525 4.6253 0.5625l7.0917-0.04625c6.462 0 11.718-5.2588 11.718-11.724 0-3.1875-1.2569-6.1688-3.5396-8.395-2.2814-2.225-5.295-3.405-8.486-3.3238-6.2908 0.16125-11.41 5.515-11.41 11.932v6.1438c-1.3844-0.55625-2.6563-1.3888-3.7495-2.4688-2.159-2.1375-3.3572-4.9875-3.3734-8.0262l-0.073715-14.625h14.704c2.9124 0 5.891 0.35125 8.8521 1.0438 2.8574 0.6675 5.4612 1.7838 7.7364 3.315 2.2102 1.4888 4.0356 3.4788 5.425 5.9125 1.3669 2.395 2.059 5.4662 2.059 9.1288 0 3.3762-0.69093 6.2888-2.0553 8.66-1.3981 2.4312-3.2347 4.4512-5.4599 6.0038-2.2864 1.595-4.9027 2.7925-7.7739 3.5575-2.9399 0.78125-5.8947 1.1788-8.7834 1.1788h-2.9074v-5.6625c-0.79088-0.03-3.4284-0.27125-4.6003-0.5675l0.0012495 10.83h7.5065c3.2885 0 6.6419-0.44875 9.9666-1.3338 3.3909-0.90125 6.4945-2.3238 9.2219-4.2288 2.7849-1.9425 5.0776-4.46 6.8156-7.4825 1.7704-3.0775 2.6675-6.765 2.6675-10.955 0-4.4725-0.89583-8.31-2.6638-11.409"
+                                fill="#ffffff" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h2 class="h2 fw-bold mb-4">Why Destinology?</h2>
+                <p class="fs-5 mx-auto opacity-90" style="max-width: 50rem;">
+                    We believe that true luxury lies in the details, and it's only possible when those
+                    that matter to
+                    you are taken care of personally, professionally, and to the highest standard.
+                </p>
+            </div>
+
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="why-card">
+                        <h3 class="h5 fw-semibold mb-2">Experts in Luxury Travel</h3>
+                        <p class="small opacity-75 mb-1 border-bottom pb-2">Over 20 years of expertise</p>
+                        <p class="small opacity-75 mb-1 border-bottom pb-2">Hand-picked luxury hotels and
+                            resorts</p>
+                        <p class="small opacity-75 mb-0 ">Travel concierges from sheltered partners
+                        </p>
+                    </div>
+                </div>
+                <div class=" col-md-4">
+                    <div class="why-card">
+                        <h3 class="h5 fw-semibold mb-2">Tailored to You</h3>
+                        <p class="small opacity-75 mb-1 border-bottom pb-2">Dedicated concierge-service</p>
+                        <p class="small opacity-75 mb-1 border-bottom pb-2">An attentive travel planning service
+                        </p>
+                        <p class="small opacity-75 mb-1 border-bottom pb-2">Hand-made tailor-made and luxury
+                            cruises
+                        </p>
+                        <p class="small opacity-75 mb-0">Perks and upgrades for loyal customers</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="why-card">
+                        <h3 class="h5 fw-semibold mb-2">Trusted by our Customers</h3>
+                        <p class="small opacity-75 mb-1 border-bottom pb-2">24/7 in-resort support</p>
+                        <p class="small opacity-75 mb-1 border-bottom pb-2">Financial security protection</p>
+                        <p class="small opacity-75 mb-1 border-bottom pb-2">ATOL and ABTA protection</p>
+                        <p class="small opacity-75 mb-0">Going above and beyond, always</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- review  -->
+        <div class="riview py-5 my-5">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-4">
+                        <svg style="fill: #ffffff; width: 75px; height: 75px;" version="1.1" viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m267.67 232.3c29.24 58.17 88.05 58.9 88.05 58.9l30.08-169.26-74.52-13.24s-83.96 43.19-43.6 123.6">
+                            </path>
+                            <path
+                                d="m264.01,317.21c-2.72,1.11-4.31,3.05-4.81,5.88-.51,2.81.39,5.23,2.5,7.17,2.17,1.94,5.32,3.29,9.41,4.04,4.09.7,7.48.51,10.15-.58,2.67-1.09,4.28-3.05,4.79-5.88.48-2.78-.34-5.2-2.48-7.14-2.12-1.96-5.22-3.29-9.31-3.99-1.68-.29-3.2-.46-4.62-.46-2.12,0-3.99.34-5.63.97">
+                            </path>
+                            <polygon points="172.08 310.76 184.64 313.04 180.24 302.07"></polygon>
+                            <path
+                                d="m302.07,343.61l4.43-24.96,10.32,1.82-3.63,20.48,24.5,4.38-.75,4.48-34.87-6.2Zm-31.74-4.91c-7.07-1.28-12.3-3.17-15.71-5.76-4.57-3.32-6.5-7.19-5.7-11.69.82-4.58,3.97-7.55,9.38-8.96,4.09-1.31,9.65-1.31,16.75-.05,7.05,1.26,12.3,3.2,15.71,5.81,4.55,3.2,6.45,7.04,5.63,11.67-.79,4.45-3.9,7.46-9.31,8.96-2.07.65-4.52.97-7.36.97s-5.9-.29-9.38-.94m-53.01-10.14l3.61-20.53-14.89-2.71.84-4.38,40.09,7.09-.79,4.43-14.82-2.59-3.66,20.55-10.37-1.86Zm-63.91-11.33l22.11-21.86,11.65,2.03,13.11,28.15-11.21-2.01-2.29-5.66-18.31-3.27-4.26,4.53-10.8-1.91Zm-21.32,27.11l207.66,36.6,13.79-77.42s-67.14,8.21-116.25-43.02c-49.09-51.3-49.47-112.2-18.67-167.93l-40.86-7.26-45.67,259.02Z">
+                            </path>
+                            <path
+                                d="m214.41,491.82C84.4,468.9-2.75,344.45,20.18,214.43,43.13,84.39,167.54-2.74,297.57,20.19c130.04,22.95,217.19,147.35,194.24,277.39-20.45,116-121.76,197.87-235.7,197.9-13.79,0-27.7-1.16-41.7-3.66M3.91,211.57c-24.5,138.95,68.65,271.99,207.64,296.52,139.01,24.5,272.06-68.63,296.53-207.67,2.65-14.94,3.92-29.85,3.92-44.54,0-121.81-87.52-230.12-211.54-251.93-14.99-2.64-29.86-3.95-44.59-3.95C134.02,0,25.76,87.53,3.91,211.57">
+                            </path>
+                            <path
+                                d="m65.33,308.68c-.82-1.48-1.35-3.2-1.88-4.87l20.89-5.69,1.28,4.67c1.08,3.99-2.09,8.18-8.16,9.83-1.32.31-2.65.56-3.95.56-3.25,0-6.26-1.23-8.18-4.5m-32-8.86c.7,1.84,1.44,3.68,1.93,5.57.53,1.89.79,3.85,1.2,5.81l22.79-6.25c3.73,13.65,9.29,22.73,22.76,19.05,8.59-2.37,11.29-9.2,8.4-19.7l-5.08-18.66-52,14.19Z">
+                            </path>
+                            <path
+                                d="m82.25,350.51l18.14-10.65c2.43,4.14,5.99,8.93.96,13.29-1.23,1.09-2.21,1.74-3.2,2.3-2.45,1.5-4.79,2.23-6.86,2.23-3.75,0-6.79-2.32-9.05-7.17m-30.63,4.31c1.13,1.65,2.31,3.22,3.34,4.89.96,1.69,1.76,3.53,2.65,5.28l21.73-12.76.29.48c-1.71,2.98-3.71,6.71-4.93,8.84l-9.48,16.39c1.3,1.96,2.7,3.87,3.9,5.91,1.25,2.11,2.21,4.24,3.27,6.37l2.65-5.08c3.92-7.77,7.68-15.64,12.03-23.21,5.03,5.52,11.72,7.33,18.38,3.44,4.6-2.74,6.47-6.54,6.23-11.6-.19-3.73-3.22-8.59-5.13-11.79l-8.45-14.43-46.49,27.28Z">
+                            </path>
+                            <path
+                                d="m109.14,423.32c-8.88-7.82-5.22-18.98,1.49-26.68,11.6-13.27,21.92-15.18,30.17-7.99,8.88,7.79,4.74,19.66-1.93,27.26-5.73,6.54-12.99,11.21-19.9,11.21-3.47,0-6.81-1.16-9.84-3.8m-6.81-36.96c-11.74,13.39-9.65,28.78,3.39,40.23,14.49,12.64,31.93,10.63,41.99-.94,7.94-9.22,13.38-25.47-3.44-40.18-6.98-6.1-14.37-8.86-21.34-8.86-7.84,0-15.16,3.53-20.6,9.76">
+                            </path>
+                            <path
+                                d="m167.79,409.34c-.43,1.07-1.11,1.99-1.68,2.93,3.99,1.11,8.73,2.57,13.86,4.79l-19.18,44.32c1.85.65,3.73,1.21,5.56,2.01,1.8.8,3.51,1.79,5.22,2.71l19.2-44.35c4.38,1.89,8.45,4.21,12.49,6.58.29-1.07.51-2.2.96-3.27.46-1.02,1.08-1.94,1.66-2.88l-37.13-16.07c-.31,1.11-.48,2.2-.96,3.22">
+                            </path>
+                            <path
+                                d="m204.95,476.45l29.5,5.01c.02-1.11,0-2.32.19-3.41.17-1.09.6-2.2.94-3.24-4.84-.19-10.18-.7-18.07-1.99l3.32-19.66,8.06,1.36c3.49.63,6.62,1.45,9.41,2.32.02-1.11,0-2.32.17-3.39.22-1.11.63-2.2.96-3.29-2.91-.07-6.16-.29-9.65-.9l-8.06-1.38,2.82-16.63c7.96,1.16,13.11,2.69,17.71,4.12.07-1.11,0-2.3.22-3.39.17-1.09.58-2.23.91-3.29l-29.5-5.01-8.93,52.77Z">
+                            </path>
+                            <path
+                                d="m279.68,425.54c-17.01,1.65-30.17,12.3-28.23,32.73,1.54,16.05,15.23,25.13,31.93,23.48,5.25-.48,10.73-2.01,15.18-4.84l1.06-6.87-1.03-.39c-3.22,3.7-8.57,6.75-13.45,7.21-12.03,1.19-19.52-7.58-20.84-20.94-1.08-11.5,2.96-24.45,15.93-25.71,5.08-.48,10.37,2.01,13.67,5.93l1.08-.12c.39-2.76.6-5.5,1.06-8.21-3.83-1.65-8.69-2.42-13.14-2.42-1.08,0-2.19,0-3.22.15">
+                            </path>
+                            <path
+                                d="m299.91,423.97c.58.97,1.18,1.94,1.59,2.9.43,1.14.6,2.23.89,3.32,3.59-2.01,7.96-4.33,13.19-6.37l17.64,45c1.76-.9,3.49-1.84,5.34-2.54,1.83-.7,3.75-1.19,5.63-1.79l-17.66-45c4.48-1.72,8.98-2.93,13.5-4.09-.55-.94-1.2-1.89-1.61-2.98-.41-1.04-.58-2.15-.82-3.22l-37.68,14.77Z">
+                            </path>
+                            <path
+                                d="m344.32,404.64l30.82,43.74,24.45-17.28c-.7-.8-1.64-1.6-2.24-2.52-.65-.9-1.16-1.99-1.64-2.95-3.54,3.22-7.68,6.68-14.2,11.33l-11.48-16.27,6.69-4.74c2.86-2.03,5.68-3.63,8.25-4.99-.75-.82-1.61-1.62-2.24-2.54-.6-.9-1.13-2.01-1.64-3-2.14,1.99-4.57,4.14-7.51,6.15l-6.67,4.72-9.72-13.8c6.45-4.77,11.17-7.31,15.42-9.56-.72-.85-1.61-1.67-2.26-2.57-.58-.85-1.08-1.99-1.61-2.98l-24.45,17.26Z">
+                            </path>
+                            <path
+                                d="m387.47 375.1 4.76-6.05c6.88-8.67 15.79-10.55 27.34-1.38 14.44 11.38 13.6 21.23 6.86 29.73l-4.14 5.23-34.82-27.52zm5.78-14.67-16.68 21.11 41.97 33.16 13.67-17.26c9.99-12.64 9.46-28.95-4.45-39.99-4.91-3.87-10.66-6.29-16.46-6.29-6.16 0-12.42 2.71-18.05 9.27">
+                            </path>
+                            <path
+                                d="m348.43,97.43c-7.29-1.28-11.29-8.18-9.19-20.14,2.09-11.96,8.18-17.07,15.5-15.78,7.22,1.31,11.21,8.21,9.12,20.14-2.09,11.96-8.18,17.07-15.42,15.78m-1.03,5.96c10.83,1.91,20.43-5.33,23.1-20.55,2.67-15.23-3.9-25.32-14.73-27.26-10.88-1.91-20.5,5.33-23.17,20.53-2.65,15.23,3.92,25.35,14.8,27.28m-38.77-36.41l-5.17-.92,3.51-12.59,20.62,3.66,1.03-5.81-26.2-4.65-6.74,23.99,10.54,1.89c10.76,1.89,13.5,5.76,12.56,11.04-.89,5.06-5.44,7.63-12.46,6.39-5.65-1.02-10.47-3.99-13.07-7.48l-3.97,4.72c3.37,4.24,9.48,7.53,16.05,8.69,11.89,2.11,18.72-3.34,20.14-11.43,1.44-8.28-2.98-15.03-16.84-17.5m-39.32-2.49c-6.5-1.16-9.91-5.42-8.98-10.89.99-5.54,5.78-8.35,11.81-7.26,7.24,1.28,10.35,6.17,9.5,10.97-.89,5.16-5.97,8.33-12.34,7.19m3.54-23.6c-9.24-1.65-17.4,2.81-18.99,11.84-1.52,8.62,4.16,15.32,13.38,16.97,5.78,1.02,11.04-.17,14.49-3.78l-.29,1.67c-2.05,11.69-9.07,16.56-18.48,14.89-3.39-.58-6.4-1.74-8.59-3.78l-3.42,4.74c2.65,2.4,6.67,4.02,11.04,4.79,13.02,2.3,23.46-4.65,26.28-20.6,2.6-14.89-2.96-24.55-15.42-26.75m-42.37-6.97l-1.01,5.81,10.49,1.86-7.17,40.91,6.57,1.16,8.18-46.72-17.06-3.03Zm-24.54-4.36l-1.01,5.81,10.47,1.86-7.17,40.91,6.57,1.16,8.21-46.72-17.06-3.03Z">
+                        </svg>
+                        <svg style="fill: #ffffff; width: 200px; height: 60px;" version="1.1" viewBox="0 0 512 234.52"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m294.3,131.02h-36.58V15.67h36.04c23.29,0,33.97,15.94,33.97,29.94,0,11.03-4.56,18.38-13.81,23.99v.34c13.31,2.98,21.34,12.26,21.34,26.27,0,16.45-11.91,34.82-40.95,34.82m-3.5-97.48h-11.91v30.1h11.17c9.5,0,16.49-6.11,16.49-15.77,0-8.21-5.61-14.33-15.75-14.33m4.01,47.77h-15.92v31.88h13.48c14.19,0,21.17-6.34,21.17-16.82,0-8.94-6.83-15.07-18.72-15.07">
+                            </path>
+                            <polygon
+                                points="420.21 33.36 389.49 33.36 389.49 131.02 368.13 131.02 368.13 33.36 334.71 33.36 334.71 15.67 427.1 15.67">
+                            </polygon>
+                            <path
+                                d="m225.48,131.02l-11.39-28.92h-41.18l-10.69,28.92h-21.2L185.64,15.64h15.89l46.21,115.38h-22.26Zm-27.33-72.72c-2.12-5.79-3.52-10.51-4.38-14.34h-.19c-.69,4.03-2.25,8.56-4.19,14.01l-9.99,26.88h28.09l-9.33-26.54Z">
+                            </path>
+                            <path
+                                d="m489.72,131.02l-11.37-28.92h-41.19l-10.69,28.92h-21.2l44.62-115.38h15.89l46.21,115.38h-22.28Zm-27.31-72.72c-2.12-5.79-3.51-10.51-4.39-14.34h-.18c-.69,4.03-2.27,8.56-4.19,14.01l-9.99,26.88h28.07l-9.32-26.54Z">
+                            </path>
+                            <path
+                                d="m69.72,0c-2.21,0-4.38.11-6.52.3v11.22h-.01v123.18h.01v4.4c2.15.2,4.32.33,6.52.33,38.5,0,69.71-31.22,69.71-69.73S108.22,0,69.72,0m25.49,76.06c-.29,4.45-.86,8.79-1.72,13.02h-16.35v-13.02h18.07Zm-18.07-13.01v-13.02h16.25c.89,4.22,1.49,8.56,1.78,13.02h-18.03Zm31.76,13.01h16.36c-.51,4.53-1.53,8.88-3.06,13.02h-15.03c.87-4.23,1.45-8.56,1.74-13.02m-.01-13.01c-.31-4.46-.93-8.8-1.82-13.02h15.01c1.55,4.12,2.62,8.47,3.15,13.02h-16.33Zm6.18-26.04h-11.78c-2.34-6.29-5.33-12.15-8.87-17.49,8.22,4.06,15.31,10.09,20.65,17.49m-25.42,0h-12.51V14.31c5.17,6.65,9.41,14.31,12.51,22.71m-12.51,88.11v-23.02h12.64c-3.1,8.5-7.38,16.28-12.62,23.02h-.02Zm17.42-5.33c3.57-5.4,6.57-11.34,8.91-17.7h11.82c-5.34,7.47-12.44,13.57-20.73,17.7">
+                            </path>
+                            <path d="m56.61,56.56v-5.29L23.23,17.89c-1.86,1.66-3.63,3.42-5.29,5.27l33.41,33.4h5.26Z">
+                            </path>
+                            <path d="m56.61 82.48v5.29l-33.38 33.38c-1.86-1.66-3.63-3.42-5.29-5.28l33.41-33.39h5.26z">
+                            </path>
+                            <path d="m56.61,63.21H.31c-.2,2.13-.31,4.3-.31,6.48s.11,4.34.31,6.5h56.29v-12.98Z">
+                            </path>
+                            <path d="m14.28,27.58C7.91,35.95,3.4,45.81,1.38,56.56h41.88L14.28,27.58Z">
+                            </path>
+                            <path d="m56.61,43.18V1.34c-10.73,2.03-20.58,6.52-28.97,12.87l28.97,28.97Z">
+                            </path>
+                            <path d="m27.65 124.81c8.39 6.35 18.23 10.85 28.95 12.89v-41.84l-28.95 28.95z">
+                            </path>
+                            <path d="m43.25,82.48H1.38c2.03,10.74,6.53,20.6,12.9,28.98l28.98-28.98Z"></path>
+                            <path
+                                d="m505.77,233.71v-37.2h-13.48v-4.98c1.76,0,3.47-.13,5.12-.4,1.66-.27,3.17-.77,4.51-1.51,1.34-.72,2.47-1.72,3.4-3,.93-1.27,1.57-2.88,1.9-4.83h4.76v51.92h-6.22Zm-40.71,0v-37.2h-13.48v-4.98c1.76,0,3.47-.13,5.12-.4,1.66-.27,3.16-.77,4.51-1.51,1.34-.72,2.47-1.72,3.4-3,.93-1.27,1.57-2.88,1.9-4.83h4.76v51.92h-6.22Zm-22.84-17.65v5.5h-7.03v12.15h-5.86v-12.15h-22.77v-6.01l23.65-33.75h4.98v34.27h7.03Zm-12.89-25.41h-.16l-17.27,25.41h17.43v-25.41Zm-49.2,16.08c-1.31.6-2.45,1.43-3.38,2.48-.93,1.05-1.62,2.29-2.09,3.74-.46,1.43-.69,2.97-.69,4.57s.24,3.13.72,4.54c.49,1.42,1.19,2.64,2.1,3.66.89,1.02,2.01,1.84,3.36,2.45,1.34.61,2.87.92,4.58.92s3.21-.3,4.5-.92c1.29-.6,2.37-1.45,3.25-2.52.88-1.07,1.55-2.31,2.01-3.7.47-1.39.7-2.84.7-4.35,0-1.62-.2-3.15-.63-4.58-.41-1.43-1.06-2.69-1.93-3.74-.88-1.05-1.98-1.89-3.3-2.52-1.31-.64-2.86-.95-4.6-.95s-3.3.3-4.62.92m11.27-17.32c-1.51-1.41-3.51-2.12-6-2.12-2.63,0-4.76.65-6.36,1.94-1.62,1.29-2.87,2.93-3.77,4.91-.9,1.98-1.53,4.11-1.87,6.4-.34,2.3-.54,4.45-.59,6.45l.16.14c1.46-2.39,3.28-4.12,5.45-5.2s4.68-1.62,7.51-1.62c2.48,0,4.71.43,6.69,1.28,1.98.86,3.64,2.05,4.99,3.56,1.34,1.52,2.37,3.29,3.11,5.34.72,2.05,1.1,4.28,1.1,6.67,0,1.9-.3,3.88-.88,5.93-.59,2.05-1.55,3.92-2.89,5.61-1.34,1.68-3.12,3.07-5.34,4.17-2.23,1.1-4.98,1.65-8.24,1.65-3.86,0-6.96-.78-9.29-2.35-2.35-1.55-4.15-3.56-5.42-6-1.27-2.43-2.11-5.12-2.52-8.05-.42-2.93-.63-5.76-.63-8.5,0-3.56.3-7.02.92-10.35.61-3.34,1.65-6.3,3.11-8.9,1.47-2.59,3.42-4.66,5.86-6.22,2.45-1.57,5.52-2.35,9.23-2.35,4.29,0,7.7,1.13,10.25,3.41,2.53,2.27,4,5.54,4.39,9.85h-6.22c-.29-2.35-1.19-4.22-2.71-5.64m-47.73,44.3h-6.96v-21.38l-20.2-30.89h8.27l15.67,24.89,15.3-24.89h7.91l-19.99,30.89v21.38Zm-33.46,0h-8.12v-8.12h8.12v8.12Zm-52.42-26.69c.78-2.42,1.95-4.52,3.52-6.3,1.55-1.77,3.48-3.18,5.79-4.21,2.29-1.02,4.93-1.53,7.91-1.53s5.67.51,7.94,1.53c2.27,1.02,4.18,2.43,5.74,4.21,1.57,1.78,2.74,3.88,3.52,6.3.78,2.41,1.17,5.01,1.17,7.8s-.39,5.36-1.17,7.76c-.78,2.39-1.95,4.47-3.52,6.26-1.55,1.78-3.47,3.17-5.74,4.17-2.28,1-4.92,1.51-7.94,1.51s-5.62-.51-7.91-1.51c-2.3-1-4.23-2.39-5.79-4.17-1.57-1.78-2.74-3.87-3.52-6.26-.78-2.4-1.17-4.98-1.17-7.76s.39-5.39,1.17-7.8m6.34,13.91c.6,1.78,1.45,3.27,2.52,4.46,1.07,1.21,2.34,2.12,3.77,2.75,1.43.64,2.97.95,4.58.95s3.13-.31,4.57-.95c1.45-.63,2.7-1.54,3.77-2.75,1.07-1.19,1.92-2.68,2.53-4.46.6-1.78.92-3.82.92-6.11s-.31-4.34-.92-6.11c-.61-1.78-1.46-3.29-2.53-4.51-1.07-1.22-2.33-2.15-3.77-2.78-1.43-.63-2.97-.95-4.57-.95s-3.15.33-4.58.95c-1.43.64-2.7,1.57-3.77,2.78-1.07,1.22-1.92,2.72-2.52,4.51-.61,1.77-.92,3.81-.92,6.11s.3,4.33.92,6.11m-49.98-39.5l27.53,42.39h.14v-42.39h6.59v52.28h-7.62l-27.3-41.96h-.16v41.96h-6.58v-52.28h7.39Zm-53.23,0l20.43,52.28h-7.69l-5.7-15.74h-22.12l-5.86,15.74h-7.1l20.36-52.28h7.68Zm4.83,30.68l-8.71-24.39h-.14l-8.86,24.39h17.72Zm-67.57-24.82v-5.86h41.8v5.86h-17.42v46.42h-6.96v-46.42h-17.43Zm-20.2,40.56c3.07,0,5.47-.83,7.21-2.5,1.74-1.65,2.59-3.95,2.59-6.88,0-1.7-.31-3.12-.94-4.24-.64-1.12-1.48-2.01-2.53-2.68-1.05-.65-2.25-1.12-3.63-1.39-1.36-.27-2.77-.4-4.24-.4h-15.89v18.08h17.43Zm-5.42-46.42c1.12,0,2.33.01,3.63.04,1.29.02,2.57.1,3.85.22,1.27.12,2.45.31,3.54.55s2.04.6,2.82,1.1c1.71,1.02,3.16,2.43,4.35,4.24,1.21,1.81,1.8,4.03,1.8,6.67,0,2.78-.66,5.18-2.01,7.21-1.34,2.03-3.25,3.53-5.75,4.51v.14c3.23.69,5.69,2.15,7.4,4.39,1.71,2.25,2.57,4.98,2.57,8.21,0,1.9-.35,3.76-1.02,5.56-.69,1.81-1.7,3.41-3.05,4.8-1.34,1.4-3,2.52-4.98,3.38-1.98.84-4.26,1.28-6.85,1.28h-25.25v-52.28h18.96Zm1.9,22.48c3.95,0,6.8-.7,8.53-2.09,1.72-1.4,2.59-3.48,2.59-6.27,0-1.86-.29-3.31-.88-4.39-.58-1.07-1.39-1.9-2.41-2.5-1.02-.58-2.21-.96-3.56-1.13-1.34-.17-2.76-.25-4.28-.25h-13.91v16.62h13.91Zm-46.42-22.48l20.43,52.28h-7.69l-5.71-15.74H12.96l-5.86,15.74H0l20.35-52.28h7.69Zm4.83,30.68l-8.71-24.39h-.14l-8.86,24.39h17.72Z">
+                            </path>
+                        </svg>
+                    </div>
+
+                    <div class="col-md-3 text-center ">
+                        <h2 class="small opacity-90 mb-4 mb-md-0">MULTI AWARD WINNING</h2>
+                    </div>
+                    <div class="col-md-5 d-flex flex-wrap justify-content-center justify-content-md-end gap-3">
+                        <img src="./assets/images/award-3.png" alt="Award 1" class="" style="height: 100px;">
+                        <img src="./assets/images/award-3.png" alt="Award 2" class="" style="height: 100px;">
+                        <img src="./assets/images/award-3.png" alt="Award 3" class="" style="height: 100px;">
+                        <img src="./assets/images/award-3.png" alt="Award 4" class="" style="height: 100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- travel partner -->
+
+    <div class="carousel-container-custom container my-5 p-4  travel-partner ">
+        <h3 class="h3 fw-semibold mb-4 text-dark">Our Travel Partners</h3>
+        <div class="position-relative overflow-hidden rounded-3">
+            <div id="partnerCarousel" class="carousel-track">
+                <!-- Original set of partner logos -->
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/AMR.png" alt="Belmond" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/Anantara.png" alt="Jumeirah" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/Atlantis.png" alt="One&Only" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/Belmond.png" alt="Atlantis" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/Constance.png" alt="LUX" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/FourSeasons.png" alt="SANI" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/MILUX.png" alt="Hyatt" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/OneAndOnly.png" alt="Marriott" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/AMR.png" alt="Belmond" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/Anantara.png" alt="Jumeirah" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/Atlantis.png" alt="One&Only" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/Belmond.png" alt="Atlantis" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/Constance.png" alt="LUX" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/FourSeasons.png" alt="SANI" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/MILUX.png" alt="Hyatt" class="partner-logo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/images/travel parner/OneAndOnly.png" alt="Marriott" class="partner-logo">
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- exclusive offer signup -->
+
+    <div class="exclusive-offer py-5">
+        <div class="container custom-container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1>Sign up to receive exclusive offers by post.</h1>
+                    <p class="pt-3">Join our postal mailing list to unlock a world of exclusive travel content.
+                        From
+                        special offers and
+                        VIP access to new launches, to expert advice and exciting ideas for your next
+                        getaway, we’ve got
+                        holiday inspiration covered. Start your Destinology journey today.</p>
+                    <button>sign up</button>
+                </div>
+                <div class="col-md-4 signup-img">
+                    <img width="100%" src="./assets/images/Senses_Brochure.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer menu -->
+
+    <footer class="footer">
+        <div class="container custom-container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
+                    <div class="logo">
+                        <img width="60%" src="./logo/logo-footer.svg" alt="" srcset="">
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 01204 208495</p>
+                        <p><i class="fas fa-envelope"></i> helpdesk@destinology.co.uk</p>
+                        <p><i class="fas fa-clock"></i> 09:00 - 19:00</p>
+                    </div>
+                    <form class="subscribe-form mt-4">
+                        <label for="email" class="">Email Address <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <input type="email" class="" id="email">
+                            <button class="btn" type="button">Join Us</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-links">
+                        <h5>Destinations</h5>
+                        <ul>
+                            <li><a href="#">Indian Ocean</a></li>
+                            <li><a href="#">Middle East</a></li>
+                            <li><a href="#">Europe</a></li>
+                            <li><a href="#">Caribbean & Mexico</a></li>
+                            <li><a href="#">Far East</a></li>
+                            <li><a href="#">North America</a></li>
+                            <li><a href="#">Africa</a></li>
+                            <li><a href="#">Australasia</a></li>
+                            <li><a href="#">Cruise</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-links">
+                        <h5>Useful Links</h5>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Meet Our Concierge</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Travel Insurance</a></li>
+                            <li><a href="#">Holiday Extras</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-links">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li><a href="#">Booking Terms & Conditions</a></li>
+                            <li><a href="#">Visa Information</a></li>
+                            <li><a href="#">Your Key Rights</a></li>
+                            <li><a href="#">Modern Slavery Statement</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- travel awar -->
+    <div class="travel-aware ">
+        <div class="container custom-container py-5 ">
+            <div class="row ">
+                <div class="col-xs-12 col-sm-2" style="display: flex; justify-content: start; align-items: center;">
+                    <img src="./assets/images//travel-aware-black.webp" alt="Travel Aware" style="filter:invert(1)">
+                </div>
+                <div class="col-xs-12 col-sm-10">
+                    <h3 class="travel-aware-title mb-3">
+                        TRAVEL AWARE – PREPARING FOR SAFE AND HEALTHY TRAVEL ABROAD
+                    </h3>
+                    <p class="travel-aware-text mb-3">
+                        The Foreign, Commonwealth &amp; Development Office (FCDO) provide
+                        the latest travel advice by country including safety and security,
+                        entry requirements, travel warnings and health. For the latest
+                        FCDO advice please refer to
+                        <a target="_blank" href="https://travelaware.campaign.gov.uk/"
+                            class="dest-link">travelaware.campaign.gov.uk</a>
+                    </p>
+                    <p class="travel-aware-text mb-3">
+                        Current travel health information can be found by visiting
+                        <a target="_blank" href="https://travelhealthpro.org.uk/"
+                            class="dest-link">travelhealthpro.org.uk/</a>
+                        a resource set up by the Department of Health. The advice can
+                        change on all sites so please check regularly for updates.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end -->
+    <div class="end bg-dark py-3">
+        <div class="container custom-container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white">© Destinology 2025. All Rights Reserved</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <svg style="fill: #ffffff; width: 100px; height: 40px;" version="1.1" viewBox="0 0 512 234.52"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m294.3,131.02h-36.58V15.67h36.04c23.29,0,33.97,15.94,33.97,29.94,0,11.03-4.56,18.38-13.81,23.99v.34c13.31,2.98,21.34,12.26,21.34,26.27,0,16.45-11.91,34.82-40.95,34.82m-3.5-97.48h-11.91v30.1h11.17c9.5,0,16.49-6.11,16.49-15.77,0-8.21-5.61-14.33-15.75-14.33m4.01,47.77h-15.92v31.88h13.48c14.19,0,21.17-6.34,21.17-16.82,0-8.94-6.83-15.07-18.72-15.07">
+                        </path>
+                        <polygon
+                            points="420.21 33.36 389.49 33.36 389.49 131.02 368.13 131.02 368.13 33.36 334.71 33.36 334.71 15.67 427.1 15.67">
+                        </polygon>
+                        <path
+                            d="m225.48,131.02l-11.39-28.92h-41.18l-10.69,28.92h-21.2L185.64,15.64h15.89l46.21,115.38h-22.26Zm-27.33-72.72c-2.12-5.79-3.52-10.51-4.38-14.34h-.19c-.69,4.03-2.25,8.56-4.19,14.01l-9.99,26.88h28.09l-9.33-26.54Z">
+                        </path>
+                        <path
+                            d="m489.72,131.02l-11.37-28.92h-41.19l-10.69,28.92h-21.2l44.62-115.38h15.89l46.21,115.38h-22.28Zm-27.31-72.72c-2.12-5.79-3.51-10.51-4.39-14.34h-.18c-.69,4.03-2.27,8.56-4.19,14.01l-9.99,26.88h28.07l-9.32-26.54Z">
+                        </path>
+                        <path
+                            d="m69.72,0c-2.21,0-4.38.11-6.52.3v11.22h-.01v123.18h.01v4.4c2.15.2,4.32.33,6.52.33,38.5,0,69.71-31.22,69.71-69.73S108.22,0,69.72,0m25.49,76.06c-.29,4.45-.86,8.79-1.72,13.02h-16.35v-13.02h18.07Zm-18.07-13.01v-13.02h16.25c.89,4.22,1.49,8.56,1.78,13.02h-18.03Zm31.76,13.01h16.36c-.51,4.53-1.53,8.88-3.06,13.02h-15.03c.87-4.23,1.45-8.56,1.74-13.02m-.01-13.01c-.31-4.46-.93-8.8-1.82-13.02h15.01c1.55,4.12,2.62,8.47,3.15,13.02h-16.33Zm6.18-26.04h-11.78c-2.34-6.29-5.33-12.15-8.87-17.49,8.22,4.06,15.31,10.09,20.65,17.49m-25.42,0h-12.51V14.31c5.17,6.65,9.41,14.31,12.51,22.71m-12.51,88.11v-23.02h12.64c-3.1,8.5-7.38,16.28-12.62,23.02h-.02Zm17.42-5.33c3.57-5.4,6.57-11.34,8.91-17.7h11.82c-5.34,7.47-12.44,13.57-20.73,17.7">
+                        </path>
+                        <path d="m56.61,56.56v-5.29L23.23,17.89c-1.86,1.66-3.63,3.42-5.29,5.27l33.41,33.4h5.26Z">
+                        </path>
+                        <path d="m56.61 82.48v5.29l-33.38 33.38c-1.86-1.66-3.63-3.42-5.29-5.28l33.41-33.39h5.26z">
+                        </path>
+                        <path d="m56.61,63.21H.31c-.2,2.13-.31,4.3-.31,6.48s.11,4.34.31,6.5h56.29v-12.98Z">
+                        </path>
+                        <path d="m14.28,27.58C7.91,35.95,3.4,45.81,1.38,56.56h41.88L14.28,27.58Z">
+                        </path>
+                        <path d="m56.61,43.18V1.34c-10.73,2.03-20.58,6.52-28.97,12.87l28.97,28.97Z">
+                        </path>
+                        <path d="m27.65 124.81c8.39 6.35 18.23 10.85 28.95 12.89v-41.84l-28.95 28.95z">
+                        </path>
+                        <path d="m43.25,82.48H1.38c2.03,10.74,6.53,20.6,12.9,28.98l28.98-28.98Z"></path>
+                        <path
+                            d="m505.77,233.71v-37.2h-13.48v-4.98c1.76,0,3.47-.13,5.12-.4,1.66-.27,3.17-.77,4.51-1.51,1.34-.72,2.47-1.72,3.4-3,.93-1.27,1.57-2.88,1.9-4.83h4.76v51.92h-6.22Zm-40.71,0v-37.2h-13.48v-4.98c1.76,0,3.47-.13,5.12-.4,1.66-.27,3.16-.77,4.51-1.51,1.34-.72,2.47-1.72,3.4-3,.93-1.27,1.57-2.88,1.9-4.83h4.76v51.92h-6.22Zm-22.84-17.65v5.5h-7.03v12.15h-5.86v-12.15h-22.77v-6.01l23.65-33.75h4.98v34.27h7.03Zm-12.89-25.41h-.16l-17.27,25.41h17.43v-25.41Zm-49.2,16.08c-1.31.6-2.45,1.43-3.38,2.48-.93,1.05-1.62,2.29-2.09,3.74-.46,1.43-.69,2.97-.69,4.57s.24,3.13.72,4.54c.49,1.42,1.19,2.64,2.1,3.66.89,1.02,2.01,1.84,3.36,2.45,1.34.61,2.87.92,4.58.92s3.21-.3,4.5-.92c1.29-.6,2.37-1.45,3.25-2.52.88-1.07,1.55-2.31,2.01-3.7.47-1.39.7-2.84.7-4.35,0-1.62-.2-3.15-.63-4.58-.41-1.43-1.06-2.69-1.93-3.74-.88-1.05-1.98-1.89-3.3-2.52-1.31-.64-2.86-.95-4.6-.95s-3.3.3-4.62.92m11.27-17.32c-1.51-1.41-3.51-2.12-6-2.12-2.63,0-4.76.65-6.36,1.94-1.62,1.29-2.87,2.93-3.77,4.91-.9,1.98-1.53,4.11-1.87,6.4-.34,2.3-.54,4.45-.59,6.45l.16.14c1.46-2.39,3.28-4.12,5.45-5.2s4.68-1.62,7.51-1.62c2.48,0,4.71.43,6.69,1.28,1.98.86,3.64,2.05,4.99,3.56,1.34,1.52,2.37,3.29,3.11,5.34.72,2.05,1.1,4.28,1.1,6.67,0,1.9-.3,3.88-.88,5.93-.59,2.05-1.55,3.92-2.89,5.61-1.34,1.68-3.12,3.07-5.34,4.17-2.23,1.1-4.98,1.65-8.24,1.65-3.86,0-6.96-.78-9.29-2.35-2.35-1.55-4.15-3.56-5.42-6-1.27-2.43-2.11-5.12-2.52-8.05-.42-2.93-.63-5.76-.63-8.5,0-3.56.3-7.02.92-10.35.61-3.34,1.65-6.3,3.11-8.9,1.47-2.59,3.42-4.66,5.86-6.22,2.45-1.57,5.52-2.35,9.23-2.35,4.29,0,7.7,1.13,10.25,3.41,2.53,2.27,4,5.54,4.39,9.85h-6.22c-.29-2.35-1.19-4.22-2.71-5.64m-47.73,44.3h-6.96v-21.38l-20.2-30.89h8.27l15.67,24.89,15.3-24.89h7.91l-19.99,30.89v21.38Zm-33.46,0h-8.12v-8.12h8.12v8.12Zm-52.42-26.69c.78-2.42,1.95-4.52,3.52-6.3,1.55-1.77,3.48-3.18,5.79-4.21,2.29-1.02,4.93-1.53,7.91-1.53s5.67.51,7.94,1.53c2.27,1.02,4.18,2.43,5.74,4.21,1.57,1.78,2.74,3.88,3.52,6.3.78,2.41,1.17,5.01,1.17,7.8s-.39,5.36-1.17,7.76c-.78,2.39-1.95,4.47-3.52,6.26-1.55,1.78-3.47,3.17-5.74,4.17-2.28,1-4.92,1.51-7.94,1.51s-5.62-.51-7.91-1.51c-2.3-1-4.23-2.39-5.79-4.17-1.57-1.78-2.74-3.87-3.52-6.26-.78-2.4-1.17-4.98-1.17-7.76s.39-5.39,1.17-7.8m6.34,13.91c.6,1.78,1.45,3.27,2.52,4.46,1.07,1.21,2.34,2.12,3.77,2.75,1.43.64,2.97.95,4.58.95s3.13-.31,4.57-.95c1.45-.63,2.7-1.54,3.77-2.75,1.07-1.19,1.92-2.68,2.53-4.46.6-1.78.92-3.82.92-6.11s-.31-4.34-.92-6.11c-.61-1.78-1.46-3.29-2.53-4.51-1.07-1.22-2.33-2.15-3.77-2.78-1.43-.63-2.97-.95-4.57-.95s-3.15.33-4.58.95c-1.43.64-2.7,1.57-3.77,2.78-1.07,1.22-1.92,2.72-2.52,4.51-.61,1.77-.92,3.81-.92,6.11s.3,4.33.92,6.11m-49.98-39.5l27.53,42.39h.14v-42.39h6.59v52.28h-7.62l-27.3-41.96h-.16v41.96h-6.58v-52.28h7.39Zm-53.23,0l20.43,52.28h-7.69l-5.7-15.74h-22.12l-5.86,15.74h-7.1l20.36-52.28h7.68Zm4.83,30.68l-8.71-24.39h-.14l-8.86,24.39h17.72Zm-67.57-24.82v-5.86h41.8v5.86h-17.42v46.42h-6.96v-46.42h-17.43Zm-20.2,40.56c3.07,0,5.47-.83,7.21-2.5,1.74-1.65,2.59-3.95,2.59-6.88,0-1.7-.31-3.12-.94-4.24-.64-1.12-1.48-2.01-2.53-2.68-1.05-.65-2.25-1.12-3.63-1.39-1.36-.27-2.77-.4-4.24-.4h-15.89v18.08h17.43Zm-5.42-46.42c1.12,0,2.33.01,3.63.04,1.29.02,2.57.1,3.85.22,1.27.12,2.45.31,3.54.55s2.04.6,2.82,1.1c1.71,1.02,3.16,2.43,4.35,4.24,1.21,1.81,1.8,4.03,1.8,6.67,0,2.78-.66,5.18-2.01,7.21-1.34,2.03-3.25,3.53-5.75,4.51v.14c3.23.69,5.69,2.15,7.4,4.39,1.71,2.25,2.57,4.98,2.57,8.21,0,1.9-.35,3.76-1.02,5.56-.69,1.81-1.7,3.41-3.05,4.8-1.34,1.4-3,2.52-4.98,3.38-1.98.84-4.26,1.28-6.85,1.28h-25.25v-52.28h18.96Zm1.9,22.48c3.95,0,6.8-.7,8.53-2.09,1.72-1.4,2.59-3.48,2.59-6.27,0-1.86-.29-3.31-.88-4.39-.58-1.07-1.39-1.9-2.41-2.5-1.02-.58-2.21-.96-3.56-1.13-1.34-.17-2.76-.25-4.28-.25h-13.91v16.62h13.91Zm-46.42-22.48l20.43,52.28h-7.69l-5.71-15.74H12.96l-5.86,15.74H0l20.35-52.28h7.69Zm4.83,30.68l-8.71-24.39h-.14l-8.86,24.39h17.72Z">
+                        </path>
+                    </svg>
+                    <svg style="fill: #ffffff; width: 50px; height: 40px;" version="1.1" viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m267.67 232.3c29.24 58.17 88.05 58.9 88.05 58.9l30.08-169.26-74.52-13.24s-83.96 43.19-43.6 123.6">
+                        </path>
+                        <path
+                            d="m264.01,317.21c-2.72,1.11-4.31,3.05-4.81,5.88-.51,2.81.39,5.23,2.5,7.17,2.17,1.94,5.32,3.29,9.41,4.04,4.09.7,7.48.51,10.15-.58,2.67-1.09,4.28-3.05,4.79-5.88.48-2.78-.34-5.2-2.48-7.14-2.12-1.96-5.22-3.29-9.31-3.99-1.68-.29-3.2-.46-4.62-.46-2.12,0-3.99.34-5.63.97">
+                        </path>
+                        <polygon points="172.08 310.76 184.64 313.04 180.24 302.07"></polygon>
+                        <path
+                            d="m302.07,343.61l4.43-24.96,10.32,1.82-3.63,20.48,24.5,4.38-.75,4.48-34.87-6.2Zm-31.74-4.91c-7.07-1.28-12.3-3.17-15.71-5.76-4.57-3.32-6.5-7.19-5.7-11.69.82-4.58,3.97-7.55,9.38-8.96,4.09-1.31,9.65-1.31,16.75-.05,7.05,1.26,12.3,3.2,15.71,5.81,4.55,3.2,6.45,7.04,5.63,11.67-.79,4.45-3.9,7.46-9.31,8.96-2.07.65-4.52.97-7.36.97s-5.9-.29-9.38-.94m-53.01-10.14l3.61-20.53-14.89-2.71.84-4.38,40.09,7.09-.79,4.43-14.82-2.59-3.66,20.55-10.37-1.86Zm-63.91-11.33l22.11-21.86,11.65,2.03,13.11,28.15-11.21-2.01-2.29-5.66-18.31-3.27-4.26,4.53-10.8-1.91Zm-21.32,27.11l207.66,36.6,13.79-77.42s-67.14,8.21-116.25-43.02c-49.09-51.3-49.47-112.2-18.67-167.93l-40.86-7.26-45.67,259.02Z">
+                        </path>
+                        <path
+                            d="m214.41,491.82C84.4,468.9-2.75,344.45,20.18,214.43,43.13,84.39,167.54-2.74,297.57,20.19c130.04,22.95,217.19,147.35,194.24,277.39-20.45,116-121.76,197.87-235.7,197.9-13.79,0-27.7-1.16-41.7-3.66M3.91,211.57c-24.5,138.95,68.65,271.99,207.64,296.52,139.01,24.5,272.06-68.63,296.53-207.67,2.65-14.94,3.92-29.85,3.92-44.54,0-121.81-87.52-230.12-211.54-251.93-14.99-2.64-29.86-3.95-44.59-3.95C134.02,0,25.76,87.53,3.91,211.57">
+                        </path>
+                        <path
+                            d="m65.33,308.68c-.82-1.48-1.35-3.2-1.88-4.87l20.89-5.69,1.28,4.67c1.08,3.99-2.09,8.18-8.16,9.83-1.32.31-2.65.56-3.95.56-3.25,0-6.26-1.23-8.18-4.5m-32-8.86c.7,1.84,1.44,3.68,1.93,5.57.53,1.89.79,3.85,1.2,5.81l22.79-6.25c3.73,13.65,9.29,22.73,22.76,19.05,8.59-2.37,11.29-9.2,8.4-19.7l-5.08-18.66-52,14.19Z">
+                        </path>
+                        <path
+                            d="m82.25,350.51l18.14-10.65c2.43,4.14,5.99,8.93.96,13.29-1.23,1.09-2.21,1.74-3.2,2.3-2.45,1.5-4.79,2.23-6.86,2.23-3.75,0-6.79-2.32-9.05-7.17m-30.63,4.31c1.13,1.65,2.31,3.22,3.34,4.89.96,1.69,1.76,3.53,2.65,5.28l21.73-12.76.29.48c-1.71,2.98-3.71,6.71-4.93,8.84l-9.48,16.39c1.3,1.96,2.7,3.87,3.9,5.91,1.25,2.11,2.21,4.24,3.27,6.37l2.65-5.08c3.92-7.77,7.68-15.64,12.03-23.21,5.03,5.52,11.72,7.33,18.38,3.44,4.6-2.74,6.47-6.54,6.23-11.6-.19-3.73-3.22-8.59-5.13-11.79l-8.45-14.43-46.49,27.28Z">
+                        </path>
+                        <path
+                            d="m109.14,423.32c-8.88-7.82-5.22-18.98,1.49-26.68,11.6-13.27,21.92-15.18,30.17-7.99,8.88,7.79,4.74,19.66-1.93,27.26-5.73,6.54-12.99,11.21-19.9,11.21-3.47,0-6.81-1.16-9.84-3.8m-6.81-36.96c-11.74,13.39-9.65,28.78,3.39,40.23,14.49,12.64,31.93,10.63,41.99-.94,7.94-9.22,13.38-25.47-3.44-40.18-6.98-6.1-14.37-8.86-21.34-8.86-7.84,0-15.16,3.53-20.6,9.76">
+                        </path>
+                        <path
+                            d="m167.79,409.34c-.43,1.07-1.11,1.99-1.68,2.93,3.99,1.11,8.73,2.57,13.86,4.79l-19.18,44.32c1.85.65,3.73,1.21,5.56,2.01,1.8.8,3.51,1.79,5.22,2.71l19.2-44.35c4.38,1.89,8.45,4.21,12.49,6.58.29-1.07.51-2.2.96-3.27.46-1.02,1.08-1.94,1.66-2.88l-37.13-16.07c-.31,1.11-.48,2.2-.96,3.22">
+                        </path>
+                        <path
+                            d="m204.95,476.45l29.5,5.01c.02-1.11,0-2.32.19-3.41.17-1.09.6-2.2.94-3.24-4.84-.19-10.18-.7-18.07-1.99l3.32-19.66,8.06,1.36c3.49.63,6.62,1.45,9.41,2.32.02-1.11,0-2.32.17-3.39.22-1.11.63-2.2.96-3.29-2.91-.07-6.16-.29-9.65-.9l-8.06-1.38,2.82-16.63c7.96,1.16,13.11,2.69,17.71,4.12.07-1.11,0-2.3.22-3.39.17-1.09.58-2.23.91-3.29l-29.5-5.01-8.93,52.77Z">
+                        </path>
+                        <path
+                            d="m279.68,425.54c-17.01,1.65-30.17,12.3-28.23,32.73,1.54,16.05,15.23,25.13,31.93,23.48,5.25-.48,10.73-2.01,15.18-4.84l1.06-6.87-1.03-.39c-3.22,3.7-8.57,6.75-13.45,7.21-12.03,1.19-19.52-7.58-20.84-20.94-1.08-11.5,2.96-24.45,15.93-25.71,5.08-.48,10.37,2.01,13.67,5.93l1.08-.12c.39-2.76.6-5.5,1.06-8.21-3.83-1.65-8.69-2.42-13.14-2.42-1.08,0-2.19,0-3.22.15">
+                        </path>
+                        <path
+                            d="m299.91,423.97c.58.97,1.18,1.94,1.59,2.9.43,1.14.6,2.23.89,3.32,3.59-2.01,7.96-4.33,13.19-6.37l17.64,45c1.76-.9,3.49-1.84,5.34-2.54,1.83-.7,3.75-1.19,5.63-1.79l-17.66-45c4.48-1.72,8.98-2.93,13.5-4.09-.55-.94-1.2-1.89-1.61-2.98-.41-1.04-.58-2.15-.82-3.22l-37.68,14.77Z">
+                        </path>
+                        <path
+                            d="m344.32,404.64l30.82,43.74,24.45-17.28c-.7-.8-1.64-1.6-2.24-2.52-.65-.9-1.16-1.99-1.64-2.95-3.54,3.22-7.68,6.68-14.2,11.33l-11.48-16.27,6.69-4.74c2.86-2.03,5.68-3.63,8.25-4.99-.75-.82-1.61-1.62-2.24-2.54-.6-.9-1.13-2.01-1.64-3-2.14,1.99-4.57,4.14-7.51,6.15l-6.67,4.72-9.72-13.8c6.45-4.77,11.17-7.31,15.42-9.56-.72-.85-1.61-1.67-2.26-2.57-.58-.85-1.08-1.99-1.61-2.98l-24.45,17.26Z">
+                        </path>
+                        <path
+                            d="m387.47 375.1 4.76-6.05c6.88-8.67 15.79-10.55 27.34-1.38 14.44 11.38 13.6 21.23 6.86 29.73l-4.14 5.23-34.82-27.52zm5.78-14.67-16.68 21.11 41.97 33.16 13.67-17.26c9.99-12.64 9.46-28.95-4.45-39.99-4.91-3.87-10.66-6.29-16.46-6.29-6.16 0-12.42 2.71-18.05 9.27">
+                        </path>
+                        <path
+                            d="m348.43,97.43c-7.29-1.28-11.29-8.18-9.19-20.14,2.09-11.96,8.18-17.07,15.5-15.78,7.22,1.31,11.21,8.21,9.12,20.14-2.09,11.96-8.18,17.07-15.42,15.78m-1.03,5.96c10.83,1.91,20.43-5.33,23.1-20.55,2.67-15.23-3.9-25.32-14.73-27.26-10.88-1.91-20.5,5.33-23.17,20.53-2.65,15.23,3.92,25.35,14.8,27.28m-38.77-36.41l-5.17-.92,3.51-12.59,20.62,3.66,1.03-5.81-26.2-4.65-6.74,23.99,10.54,1.89c10.76,1.89,13.5,5.76,12.56,11.04-.89,5.06-5.44,7.63-12.46,6.39-5.65-1.02-10.47-3.99-13.07-7.48l-3.97,4.72c3.37,4.24,9.48,7.53,16.05,8.69,11.89,2.11,18.72-3.34,20.14-11.43,1.44-8.28-2.98-15.03-16.84-17.5m-39.32-2.49c-6.5-1.16-9.91-5.42-8.98-10.89.99-5.54,5.78-8.35,11.81-7.26,7.24,1.28,10.35,6.17,9.5,10.97-.89,5.16-5.97,8.33-12.34,7.19m3.54-23.6c-9.24-1.65-17.4,2.81-18.99,11.84-1.52,8.62,4.16,15.32,13.38,16.97,5.78,1.02,11.04-.17,14.49-3.78l-.29,1.67c-2.05,11.69-9.07,16.56-18.48,14.89-3.39-.58-6.4-1.74-8.59-3.78l-3.42,4.74c2.65,2.4,6.67,4.02,11.04,4.79,13.02,2.3,23.46-4.65,26.28-20.6,2.6-14.89-2.96-24.55-15.42-26.75m-42.37-6.97l-1.01,5.81,10.49,1.86-7.17,40.91,6.57,1.16,8.18-46.72-17.06-3.03Zm-24.54-4.36l-1.01,5.81,10.47,1.86-7.17,40.91,6.57,1.16,8.21-46.72-17.06-3.03Z">
+                    </svg>
+
+                    <img src="./assets/images/pyment.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <!-- custom js -->
+    <script src="./assets/ps.js"></script>
+    <script src="./assets/script.js"></script>
+
+</body>
+
+</html>
